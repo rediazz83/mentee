@@ -16,16 +16,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/say-rest")
 public class GreetingRestController {
 
-    @RequestMapping(
-            value = "/greeting",
-            method = RequestMethod.GET,
-            produces = MediaType.APPLICATION_JSON_VALUE
-    )
-    @ApiOperation(
-            value = "Short description of what your controller does (in less than 120 chars)",
-            notes = "Verbose description of the controller action",
-            response = GenericResponse.class
-    )
+    @ApiOperation(value = "Short description of what does", response = GenericResponse.class)
+    @GetMapping(value = "/greeting", produces = MediaType.APPLICATION_JSON_VALUE)
     public GenericResponse sayGreeting() {
         ServiceStatus status = new ServiceStatus(HttpStatus.OK.value(), "Success");
         Persona persona = new Persona("Rodrigo", "Diaz","Zuniga");
